@@ -1,0 +1,34 @@
+<?php
+
+include_once "$racine/modele/auth/authentification.php";
+include_once "$racine/modele/auth/utilisateur.php";
+
+// creation du menu lateral
+$menuLateral = array();
+$menuLateral[] = Array("url"=>"./?action=profil","label"=>"Consulter mon profil");
+$menuLateral[] = Array("url"=>"./?action=updProfil","label"=>"Modifier mon profil");
+
+
+// recuperation des donnees GET, POST, et SESSION
+
+// appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
+if (isLoggedOn()){
+    $mail = $_SESSION['mail'];
+    $util = getUtilisateurByMail($mail);
+    
+    // traitement si necessaire des donnees recuperees
+
+
+    // appel du script de vue qui permet de gerer l'affichage des donnees
+    $titre = "Mon profil";
+    include "$racine/vue/entete.html.php";
+    include "$racine/vue/auth/vueMonProfil.php";
+    include "$racine/vue/pied.html.php";
+}
+else{
+    $titre = "Mon profil";
+    include "$racine/vue/entete.html.php";
+    include "$racine/vue/pied.html.php";
+}
+
+?>
