@@ -10,7 +10,7 @@ function login($mail, $mdp) {
     $util = getUtilisateurByMail($mail);
     $mdpBD = $util["mdp"];
 
-    if ($mdpBD == $mdp) {
+    if (password_verify($mdp, $mdpBD)) {
         // le mot de passe est celui de l'utilisateur dans la base de donnees
         $_SESSION["mail"] = $mail;
         $_SESSION["mdp"] = $mdpBD;

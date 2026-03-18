@@ -8,6 +8,7 @@ include_once "$racine/modele/illustration.php";
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $listeBedes = getBedes();
 
+
 // traitement si necessaire des donnees recuperees
 ;
 

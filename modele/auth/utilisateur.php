@@ -23,9 +23,12 @@ function addUtilisateur($mail, $mdp, $pseudo) {
     try {
         $cnx = connexionPDO();
 
+        // Hash du mot de passe
+        $mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
+
         $req = $cnx->prepare("insert into utilisateur (mail, mdp, pseudo) values(:mail,:mdp,:pseudo)");
         $req->bindValue(':mail', $mail, PDO::PARAM_STR);
-        $req->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+        $req->bindValue(':mdp', $mdpHash, PDO::PARAM_STR);
         $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
         
         $resultat = $req->execute();
