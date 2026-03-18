@@ -37,5 +37,20 @@ function getBedes() {
     }
     return $resultat;
 }
+function getGenre(){
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select libelle from genre where id=:id");
+        $req->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
 
 ?>
