@@ -1,5 +1,5 @@
 <?php
-include_once "$racine/modele/bede.php";
+include_once "$racine/modele/genre.php";
 include_once "$racine/modele/illustration.php";
 ;
 $listeGenre =getGenre();

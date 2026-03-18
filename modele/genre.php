@@ -2,10 +2,10 @@
 
 include_once "connexionDB.php";
 
-function getBedeById($id) {
+function getGenreById($id) {
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bede where id=:id");
+        $req = $cnx->prepare("select * from genre where id=:id");
         $req->bindValue(':id', $id, PDO::PARAM_INT);
 
         $req->execute();
@@ -17,20 +17,17 @@ function getBedeById($id) {
     }
     return $resultat;
 }
-
-function getBedes() {
+function getGenre(){
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bede");
+        $req = $cnx->prepare("select libelle from genre");
+        
+
         $req->execute();
 
-        $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        while ($ligne) {
-            $resultat[] = $ligne;
-            $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        }
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();

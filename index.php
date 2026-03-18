@@ -13,7 +13,7 @@ switch ($action){
     case "accueil":
 		$fichier = "ctrlListeBedes.php";
 		break;
-	case "genre":
+	case "recherche":
 		$fichier ="ctrlGenreBedes.php";
 		break;
     case "detail":

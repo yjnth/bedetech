@@ -4,13 +4,13 @@
 <?php
 for ($i = 0; $i < count($listeGenre); $i++) {
 	
-	$lesGenres = getIllustrationsByIdRef($listeBedes[$i]['id']);
+	$lesGenres = getIllustrationsByIdRef($listeGenre[$i]['id']);
     ?>
 
     <div class="card">
 		<div class="illustrationCard">
-            <?php if (count($lesIllustrations) > 0) { ?>
-                <img src="illustrations/<?= $lesIllustrations[0]["chemin"] ?>" alt="Couverture" />
+            <?php if (count($lesGenres) > 0) { ?>
+                <img src="illustrations/<?= $lesGenres[0]["chemin"] ?>" alt="Couverture" />
             <?php } ?>
         </div>
 		<br />
@@ -19,21 +19,7 @@ for ($i = 0; $i < count($listeGenre); $i++) {
             parue en <?= $listeBedes[$i]["anneeParution"] ?> - <?= $listeBedes[$i]["nbPages"] ?> pages -
             <br> 
             cette bande déssinée  est un(e) <?= $listeBedes[$i]["type_de_bd"] ?>
-        </div>
-		
-		<!--
-		<div class="tagGenre">
-			<ul id="tagGenre">
-				
-				<li class="tag">
-					<span class="tag">#</span>
-				</li>
-
-			</ul>
-		</div>
-		-->
-
-    </div>
+      
 
     <?php
 }

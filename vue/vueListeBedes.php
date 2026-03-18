@@ -21,17 +21,7 @@ for ($i = 0; $i < count($listeBedes); $i++) {
             cette bande déssinée  est un(e) <?= $listeBedes[$i]["type_de_bd"] ?>
         </div>
 		
-		<!--
-		<div class="tagGenre">
-			<ul id="tagGenre">
-				
-				<li class="tag">
-					<span class="tag">#</span>
-				</li>
-
-			</ul>
-		</div>
-		-->
+		
 
     </div>
 
