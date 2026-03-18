@@ -16,7 +16,9 @@ for ($i = 0; $i < count($listeBedes); $i++) {
 		<br />
         <div class="descrCard"><?php echo "<a href='./?action=detail&id=" . $listeBedes[$i]['id'] . "'>" . $listeBedes[$i]['titre'] . "</a>"; ?>
             <br />
-            parue en <?= $listeBedes[$i]["anneeParution"] ?> - <?= $listeBedes[$i]["nbPages"] ?> pages
+            parue en <?= $listeBedes[$i]["anneeParution"] ?> - <?= $listeBedes[$i]["nbPages"] ?> pages -
+            <br> 
+            cette bande déssinée  est un(e) <?= $listeBedes[$i]["type_de_bd"] ?>
         </div>
 		
 		<!--
